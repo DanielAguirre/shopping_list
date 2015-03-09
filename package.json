@@ -1,0 +1,11 @@
+{
+  "name": "shopping_list",
+  "version": "1.0.0",
+  "description": "Web app que te permitira hacer lista de compras",
+  "main": "server.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "author": "Daniel Alejandro Aguirre Linares",
+  "license": "ISC"
+}
