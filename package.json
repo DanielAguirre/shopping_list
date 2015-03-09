@@ -7,5 +7,12 @@
     "test": "make test"
   },
   "author": "Daniel Alejandro Aguirre Linares",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^2.1.1"
+  },
+  "dependencies": {
+    "express": "^4.12.2",
+    "swig": "^1.4.2"
+  }
 }
