@@ -1,8 +1,8 @@
 DEFAULT:
-    make test
+	make test
 
 test:
-   ./node_modules/.bin/mocha $(ARGS) test/
+	./node_modules/.bin/mocha $(ARGS) test/
 
 .PHONY: \
     DEFAULT \
