@@ -6,8 +6,8 @@ var app = new expressServer();
 
 var server = new http.createServer(app.expressServer);;
 
-if(module.parent){
-	server.listen(conf.port,function{
+if(!module.parent){
+	server.listen(conf.port,function(){
 		console.log('app runining in port 3000')
 	});
 }else {
