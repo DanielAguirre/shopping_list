@@ -9,6 +9,8 @@ var ExpressServer = function (){
 
     //middlewares
     this.expressServer.use(bodyParser.json());
+
+    
     if(env === 'development') {
     	console.log("NO HAY CHACHE");
     	this.expressServer,set('view cache', false);
