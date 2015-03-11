@@ -2,9 +2,9 @@
     "port": 3000,
     "pg": {
     	"host":"127.0.0.1",
-    	"user": "your_database_user",
-    	"password": "your_database_password",
-    	"database": "my_database",
+    	"user": "daniel_A",
+    	"password": "12345",
+    	"database": "shopping_list",
     	"charset": "utf8"
     }
 }

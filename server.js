@@ -1,6 +1,9 @@
 var http = require('http'),
-    conf = require('./conf'),
+	Sequelize = require('sequelize'),
+    conf = require('./conf'),    
     expressServer = require('./app/expressServer');
+
+var sequelize = new Sequelize('postgres://'+conf.pg.user+':'+conf.pg.password+'@example.com:5432/'+conf.pg.database);
 
 var app = new expressServer();
 
