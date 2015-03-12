@@ -6,3 +6,5 @@ ApiController.getAll = function(req, res){
 		res.json({shoppinglist:data});
 	})
 }
+
+module.exports = ApiController;

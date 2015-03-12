@@ -1,7 +1,7 @@
 var express = require('express'),
 	apiController = require('./controller');
 
-var crouter = express.Router();
+var router = express.Router();
 
 router.get('/shopping_lists/' , apiController.getAll);
 
