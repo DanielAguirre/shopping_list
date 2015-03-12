@@ -1,5 +1,5 @@
 var http = require('http'),	
-    conf = require('./conf'),    
+    conf = require('./conf'), 
     expressServer = require('./app/expressServer');
 
 
