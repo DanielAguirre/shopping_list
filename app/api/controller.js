@@ -1,4 +1,4 @@
-var modelShoppinglist = require('model/shoppinglist')
+var modelShoppinglist = require('./model/shoppinglist')
 var ApiController = {};
 
 ApiController.getAll = function(req, res){

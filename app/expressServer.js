@@ -1,7 +1,8 @@
 var env = process.env.NODE_EN || 'production',
     express = require('express'),
     swig = require('swig'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    urls = require('./urls');
 
 var ExpressServer = function (){
 
@@ -19,6 +20,10 @@ var ExpressServer = function (){
     this.expressServer.engine('html',swig.renderFile);
     this.expressServer.set('view cache','html');
     this.expressServer.set('views',__dirname+'/webapp/views');
+
+    for(var ulr in urls){
+        this.expressServer.use(url, urls[url]);
+    }
 }
 
 
