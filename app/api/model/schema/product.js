@@ -1,8 +1,10 @@
-var Sequelize = require('sequelize');
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schmea;
 
-var Product = sequelize.define('products',{
-	'product': { Sequelize.TEXT, allowNull: false},
-	'price': { Sequelize.FLOAT(11,12), allowNull: false}
+var ProductSchema new Schema({
+	'product':'string',
+	'price':{type:'Number',required: true }
 });
+
 
 module.exports = Product;

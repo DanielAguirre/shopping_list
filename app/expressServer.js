@@ -21,7 +21,7 @@ var ExpressServer = function (){
     this.expressServer.set('view cache','html');
     this.expressServer.set('views',__dirname+'/webapp/views');
 
-    for(var url in urls){
+    for(var url in urls) {
         this.expressServer.use(url, urls[url]);
     }
 }

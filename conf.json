@@ -6,5 +6,9 @@
     	"password": "12345",
     	"database": "shopping_list",
     	"charset": "utf8"
+    },
+    "mongoDB":{
+    	"host":"localhost",
+    	"name":"shopping_list"
     }
 }

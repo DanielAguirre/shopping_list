@@ -1,7 +1,10 @@
 var http = require('http'),	
+	mongoose = require('mongoose'),
     conf = require('./conf'), 
     expressServer = require('./app/expressServer');
 
+
+mongoose.connect('mongoddb://'+conf.mongoDB.host,+'/'+conf.mongoDB.name)
 
 var app = new expressServer();
 

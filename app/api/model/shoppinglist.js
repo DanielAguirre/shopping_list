@@ -24,5 +24,14 @@ ShoppingList.findAll = function(data){
 		});
 
 }
+ShoppingList.save = function(data){
+		List
+			.create({"total":data.total})
+			.then(function(res){
+				console.log("res",res);
+			})
+
+}
+
 
 module.exports = ShoppingList;
