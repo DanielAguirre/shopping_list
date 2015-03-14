@@ -1,5 +1,4 @@
-'use strict'
-
+'use strict'					   
 var request = require('supertest-as-promised'),
 	api = require('../server'),
 	host = process.env.API_TEST_HOST || api,
@@ -19,7 +18,7 @@ var data = {
 
 describe('recurso /list',function(){
 	describe('POST',function(){
-		it('shoud create a new shopping list', function(done){
+		it('should create a new shopping list', function(done){
 			request
 				.post(url)
 				.set('Accept','application/json')
@@ -45,7 +44,6 @@ describe('recurso /list',function(){
 	describe('GET', function(){
 		it('should get an existing list', function(done){
 			var id;
-
 			request
 				.post(url)
 				.set('Accept','application/json')
@@ -59,6 +57,7 @@ describe('recurso /list',function(){
 							.expect('Content-Type',/application\/json/)
 				}, done)
 				.then(function(res) {
+					var body = res.body;
 					var products = res.body.products;
 					//Properties
 					expect(products[0]).to.have.property('product','milk');
