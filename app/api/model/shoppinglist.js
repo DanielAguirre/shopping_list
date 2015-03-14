@@ -1,35 +1,23 @@
-var conf = require('../../../conf'),
-	Sequelize = require('sequelize');
-var sequelize = new Sequelize('postgres://'+conf.pg.user+':'+conf.pg.password+'@example.com:5432/'+conf.pg.database);
+var modelList = require('./schema/list');
 
 var ShoppingList = {}
 
-var Product = sequelize.define('products',{
-	'product': { type:Sequelize.TEXT, allowNull: false},
-	'price': { type:Sequelize.FLOAT(11,12), allowNull: false}
-});
-
-var List = sequelize.define('list',{
-	'total'	: { type:Sequelize.FLOAT(11,12),  allowNull: false}	
-	}, {'timestamps':true}
-);
-
-
 
 ShoppingList.findAll = function(data){
-	lList
+	modelList
 		.findAll()
 		.promse(function(res){
 			console.log(res);
 		});
 
 }
-ShoppingList.save = function(data){
-		List
-			.create({"total":data.total})
-			.then(function(res){
-				console.log("res",res);
-			})
+
+ShoppingList.save = function(data, callback){
+	modelList
+		.create(data, function(err,res){
+			if(err) throw err;
+			callback(res)
+		})
 
 }
 

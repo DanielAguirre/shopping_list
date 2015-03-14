@@ -9,10 +9,10 @@ request = request(host);
 
 var data = {
 	'list':{
-		'products':{
+		'products':[{
 			'product':'milk',
 			'price':'20.50'
-		},
+		}],
 		'total':'20.50'
 	}
 };
@@ -20,26 +20,24 @@ var data = {
 describe('recurso /list',function(){
 	describe('POST',function(){
 		it('shoud create a new shopping list', function(done){
-			console.log(url);
 			request
 				.post(url)
 				.set('Accept','application/json')
 				.send(data)
 				.expect('Content-Type',/application\/json/)
 				.expect(201)
-				.end(function(err,res){
-					console.log(res)
+				.end(function(err,res){					
 					var body = res.body;
-	
-					expect(body).to.have.property('list')
+					
+					expect(body).to.have.property('products')
+					var products = body.products;
+					
 
-					var list = body.list;
-
-					//Propiedades
-					expect(list).to.have.property('products.product','milk');
-					expect(list).to.have.property('products.product.price','20.50');
-					expect(list).to.have.property('total','20.50');
-					expect(list).to.have.property('id');
+					//Propiedades					
+					expect(products[0]).to.have.property('product','milk');
+					expect(products[0]).to.have.property('price','20.50');
+					expect(body).to.have.property('total',20.5);
+					expect(body).to.have.property('_id');
 					done();
 				});			
 		});

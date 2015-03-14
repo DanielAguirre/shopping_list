@@ -7,12 +7,10 @@ ApiController.getAll = function(req, res){
 	})
 }
 
-ApiController.save = function(req,res){
-	console.log("save",req.body)
-	modelShoppinglist.save(req.body.list, function(data){
+ApiController.save = function(req,res){	
+	modelShoppinglist.save(req.body.list, function(data){		
 		res.json(data);
-	})
-	//res.json({jhola:"hola"})
+	});	
 }
 
 module.exports = ApiController;

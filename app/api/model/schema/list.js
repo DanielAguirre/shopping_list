@@ -1,11 +1,13 @@
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schmea;
+	Schema = mongoose.Schema;
 	product = require('./product');
 	
-var List = sequelize.define('list',{
-	'total'	: {type:'Number',required: true }
-	'product':[product],
+var ListSchema = new Schema({
+	'total'	: {type:'Number',required: true },
+	'products':{type : Array },
 	'createdAt': Date
-});;
+});
 
-module.export = List;
+var List = mongoose.model('List', ListSchema);
+
+module.exports = List;
