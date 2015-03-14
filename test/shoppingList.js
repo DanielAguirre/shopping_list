@@ -68,4 +68,49 @@ describe('recurso /list',function(){
 				}, done);
 		})
 	})
+
+	describe('PUT', function(){
+		it('should update an existing list', function(done){
+			var id;
+			request
+				.post(url)
+				.set('Accept','application/json')
+				.send(data)
+				.expect(201)
+				.then(function(res){
+					id = res.body._id;
+					return request
+							.get(url+'/'+id)							
+							.expect('Content-Type',/application\/json/)
+							.send();
+				}, done)
+				.then(function(res){
+					var list = res.body;
+
+					list
+						.products
+						.push({
+							'product':'water',
+							'price':'12'
+						}) 
+						return request
+								.put(url+'/'+id)
+								.send(list)
+								.expect(200)
+								.expect('Content-Type',/application\/json/)
+				}, done)
+				.then(function(res){
+					var list = res.body;
+					var products = res.body.products;
+					//Properties
+					expect(products[0]).to.have.property('product','milk');
+					expect(products[0]).to.have.property('price','20.50');
+					expect(products[1]).to.have.property('product','water');
+					expect(products[1]).to.have.property('price','12');
+					expect(body).to.have.property('total',20.5);
+					expect(body).to.have.property('_id', id);
+					done();
+				}, done);
+		})
+	})
 });
