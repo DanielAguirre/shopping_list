@@ -2,7 +2,8 @@
 var request = require('supertest-as-promised'),
 	api = require('../server'),
 	host = process.env.API_TEST_HOST || api,
-	url= '/api/shopping_lists';
+	url= '/api/shopping_lists'
+	_ = require('lodash');
 
 request = request(host);
 
@@ -66,6 +67,86 @@ describe('recurso /list',function(){
 					expect(body).to.have.property('_id', id);
 					done();
 				}, done);
+		})
+		it('shoulld get a list of all shopping lists',function(done){
+			var id1,id2;
+			var data1 = {
+				'list':{
+					'products':[{
+						'product':'bread',
+						'price':'7.50'
+					},{
+						'product':'coffe',
+						'price':'11.75'
+					}],
+					'total':'19.25'
+				}				
+			};
+
+			var data2 = {
+				'list':{
+					'products':[{
+						'product':'milk',
+						'price':'10.50'
+					},{
+						'product':'juice',
+						'price':'3.25'
+					}],
+					'total':'13.75'
+				}				
+			};
+
+			request
+				.post(url)
+				.set('Accept','application/json')
+				.send(data1)
+				.expect(201)
+				.expect('Content-Type',/application\/json/)
+				.then(function(res){
+					id1 = res.body._id;
+
+					return request
+							.post(url)
+							.set('Accept','application/json')
+							.send(data2)
+							.expect(201)
+							.expect('Content-Type',/application\/json/)
+
+				}, done)
+				.then(function(res){
+					id2 = res.body._id;
+					return request
+							.get(url)
+							.expect(200)
+							.expect('Content-Type',/application\/json/)
+				}, done)
+				.then(function(res){
+					var lists = res.body;
+
+					expect(list).to.be.an('array')
+							.and.to.have.length.above(0);
+
+					var list1 = _.find(list,{_id:id1})
+					var list2 = _.find(list,{_id:id2})
+
+					var products1 = list1.products;
+					var products2 = list2.products;
+					expect(products1[0]).to.have.property('product','bread');
+					expect(products1[0]).to.have.property('price','10.50');
+					expect(products1[1]).to.have.property('product','juice');
+					expect(products1[1]).to.have.property('price','11.75');
+					expect(list).to.have.property('total',19.25);
+					expect(list).to.have.property('_id', id1);
+
+					expect(products2[0]).to.have.property('product','milk');
+					expect(products2[0]).to.have.property('price','10.50');
+					expect(products2[1]).to.have.property('product','coffe');
+					expect(products2[1]).to.have.property('price','3.25');
+					expect(list).to.have.property('total',13.75);
+					expect(list).to.have.property('_id', id2);
+
+					done();
+				}, done)
 		})
 	})
 
