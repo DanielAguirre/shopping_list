@@ -3,11 +3,10 @@ var modelList = require('./schema/list');
 var ShoppingList = {}
 
 
-ShoppingList.findAll = function(data) {
+ShoppingList.findAll = function( callback) {
 	modelList
-		.findAll()
-		.promse(function(res){
-			console.log(res);
+		.find({},function(err,res){
+			callback(res);
 		});
 
 }

@@ -2,6 +2,8 @@ var express = require('express'),
 	apiController = require('./controller');
 
 var router = express.Router();
+
+router.get('/shopping_lists/', apiController.getAll);
             
 router
 	.route('/shopping_lists/:id?')
