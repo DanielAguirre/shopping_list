@@ -113,4 +113,30 @@ describe('recurso /list',function(){
 				}, done);
 		})
 	})
+	describe('DELETE', function(){
+		it('sgould delte an existing list',function(done){
+			var id;
+
+			console.log(data);
+			request
+				.post(url)
+				.set(data)
+				.expect(201)
+				.then(function(res){
+					id = res.body._id
+					return request
+							.delete(utl+'/'+id)
+							.set('Accept','application/json')
+							.expect(204)
+				}, done)
+				.then(function(res){
+					return request
+							.get(utl+'/'+id)
+							.expect(400)
+				},done)
+				.then(function(res){
+					done();
+				},done)
+		});
+	})
 });
