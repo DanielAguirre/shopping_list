@@ -13,6 +13,7 @@ router
 	.post(apiController.save)
 	.get(apiController.get)
 	.put(apiController.update)
+	.delete(apiController.delete)
 	;
 
 module.exports = router;

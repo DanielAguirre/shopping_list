@@ -45,4 +45,12 @@ ShoppingList.update = function(id,list,callback){
 }
 
 
+ShoppingList.delete = function(id, callback){
+	modelList.remove({_id:id},function(err,data){
+		if(err) throw err;
+		console.log("delete")
+		callback();
+	});
+}
+
 module.exports = ShoppingList;
