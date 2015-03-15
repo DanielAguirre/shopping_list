@@ -17,9 +17,18 @@ ApiController.save = function(req,res) {
 };
 
 ApiController.get = function(req,res) {	
-	modelShoppinglist.get(req.params.id, function(data){		
+	modelShoppinglist.get(req.params.id, function(data){
 		res.json(data);
 	})
+}
+
+ApiController.update = function(req,res) {
+	var id = req.params.id;
+	var list = req.body
+
+	modelShoppinglist.update(id,list,function(data){
+		res.json(data);
+	});
 }
 
 module.exports = ApiController;

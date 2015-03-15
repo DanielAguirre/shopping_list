@@ -30,5 +30,19 @@ ShoppingList.get = function(_id,callback) {
 		})
 }
 
+ShoppingList.update = function(id,list,callback){
+	modelList
+		.findOneAndUpdate(
+			{_id:id},
+			{ 
+				'total':list.total,
+				'products':list.products
+			},
+			function(err, data){
+				if(err) throw err;
+				callback(data);
+			})
+}
+
 
 module.exports = ShoppingList;

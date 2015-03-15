@@ -107,8 +107,8 @@ describe('recurso /list',function(){
 					expect(products[0]).to.have.property('price','20.50');
 					expect(products[1]).to.have.property('product','water');
 					expect(products[1]).to.have.property('price','12');
-					expect(body).to.have.property('total',20.5);
-					expect(body).to.have.property('_id', id);
+					expect(list).to.have.property('total',20.5);
+					expect(list).to.have.property('_id', id);
 					done();
 				}, done);
 		})
