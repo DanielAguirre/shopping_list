@@ -4,12 +4,14 @@
   "description": "Web app que te permitira hacer lista de compras",
   "main": "server.js",
   "scripts": {
+    "coverage": "istanbul cover _mocha -- -u exports -R spec",
     "test": "make test"
   },
   "author": "Daniel Alejandro Aguirre Linares",
   "license": "ISC",
   "devDependencies": {
     "chai": "^2.1.1",
+    "istanbul": "^0.4.2",
     "mocha": "^2.2.1",
     "supertest": "^0.15.0",
     "supertest-as-promised": "^1.0.0"

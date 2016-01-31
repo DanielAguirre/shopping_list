@@ -1,5 +1,5 @@
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;	
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;	
 	
 var ListSchema = new Schema({
 	'total'	: {type:'Number',required: true },
@@ -7,6 +7,6 @@ var ListSchema = new Schema({
 	'createdAt': Date
 });
 
-var List = mongoose.model('List', ListSchema);
+const List = mongoose.model('List', ListSchema);
 
-module.exports = List;
+module.exports = List
