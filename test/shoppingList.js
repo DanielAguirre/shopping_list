@@ -204,7 +204,8 @@ describe('recurso /list',function(){
 				.send(data)
 				.expect(201)
 				.then(function(res){
-					id = res.body._id					
+					console.log("id_",res.body._id)
+					id = res.body._id
 					return request
 							.delete(url+'/'+id)
 							.set('Accept','application/json')

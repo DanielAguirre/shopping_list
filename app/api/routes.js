@@ -1,10 +1,11 @@
-var express = require('express'),
-	apiController = require('./controller');
+'use strict'
+const express = require('express');
+const apiController = require('./controller');
 
-var router = express.Router();
+const router = express.Router();
 
 router.get('/shopping_lists/', apiController.getAll);
-            
+
 router
 	.route('/shopping_lists/:id?')
 	.all(function(req,res,next){
@@ -12,10 +13,9 @@ router
 		res.set('Content-Type','application/json');
 		next();
 	})
-	.post(apiController.save)
-	.get(apiController.get)
-	.put(apiController.update)
-	.delete(apiController.delete)
-	;
+	.post(apiController.post)
+	.get(apiController.fetch)
+	.put(apiController.restore)
+	.delete(apiController.remove);
 
 module.exports = router;
