@@ -1,12 +1,12 @@
-doctype html
-head(lang="es")
-	title="Shopping List"
-	meta(charset="utf-8")
-body
+extends ./layout.jade
+
+block content
 	nav
 		ul
-			li Login
-			li sign in
+			li 
+				a(href='login') Registrate
+			li
+				a(href='signin') Iniciar Sesíon
 	header
 		h1 Bienvenido
 	.content
