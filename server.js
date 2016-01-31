@@ -1,14 +1,15 @@
-var http = require('http'),	
-	mongoose = require('mongoose'),
-    conf = require('./conf'), 
-    expressServer = require('./app/expressServer');
+'use strict'
+const http = require('http');
+const	mongoose = require('mongoose');
+const conf = require('./conf');
+const expressServer = require('./app/expressServer');
 
 
 mongoose.connect('mongodb://'+conf.mongoDB.host+'/'+conf.mongoDB.name);
 
-var app = new expressServer();
+const app = new expressServer();
 
-var server = new http.createServer(app.expressServer);;
+const server = new http.createServer(app.expressServer);;
 
 if(!module.parent){
 	server.listen(conf.port,function(){
