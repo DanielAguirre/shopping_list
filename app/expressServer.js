@@ -2,7 +2,7 @@
 
 const env = process.env.NODE_EN || 'production';
 const express = require('express');
-const swig = require('swig');
+const jade = require('jade');
 const bodyParser = require('body-parser');
 const urls = require('./urls');
 const middlewares =require('./middlewares') ;
@@ -20,12 +20,12 @@ var ExpressServer = function (){
   
   if(env === 'development') {
     console.log("NO HAY CHACHE");
-    this.expressServer,set('view cache', false);
+    this.expressServer.set('view cache', false);
   }
-
-  this.expressServer.engine('html',swig.renderFile);
-  this.expressServer.set('view cache','html');
+  
+  this.expressServer.set('view cache','jade');
   this.expressServer.set('views',__dirname+'/webapp/views');
+  this.expressServer.set('view engine','jade');
 
   for(var url in urls) {
       this.expressServer.use(url, urls[url]);
