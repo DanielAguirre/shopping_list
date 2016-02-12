@@ -14,6 +14,7 @@ describe('source /', function() {
 				.expect('Content-Type',/text\/html/)
 				.expect(200)
 				.end(function () {
+					assert.equal(200,res.status,'Status code 200')
 					done()
 				})
 		})
