@@ -6,7 +6,7 @@ const Layout = React.createClass({
       <html lang="es">
         <head>
          <title>"Shopping List"</title>
-         <meta charset="utf-8"/>
+         <meta charSet="utf-8"/>
         </head>
         <body>
           {this.props.children}

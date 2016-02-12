@@ -4,12 +4,16 @@
   "description": "Web app que te permitira hacer lista de compras",
   "main": "server.js",
   "scripts": {
+    "development": "NODE_ENV=development node server.js",
     "coverage": "istanbul cover _mocha -- -u exports -R spec",
     "test": "make test"
   },
   "author": "Daniel Alejandro Aguirre Linares",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanielAguirre/shopping_list"
+    },
   "license": "ISC",
-  "homepage": "https://github.com/DanielAguirre/shopping_list",
   "devDependencies": {
     "chai": "^2.1.1",
     "istanbul": "^0.4.2",

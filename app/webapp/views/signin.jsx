@@ -6,7 +6,7 @@ const Login = React.createClass({
 		return (
 			<Layout title={this.props.title}>
 				<h1>Sing in</h1>
-				<section class="social-media-button">
+				<section className="social-media-button">
 					<button>Twitter</button>
 					<button>Facebook</button>
 					<button>Gmail</button>

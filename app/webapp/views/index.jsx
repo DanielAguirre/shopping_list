@@ -1,9 +1,9 @@
 const React = require('react')
-const Layout = require('./layout');
+const Layout = require('./layout')
 
 
 const Index = React.createClass({
-	render: function(){
+	render: function () {
 		return (			
 			<Layout title={this.props.title}>
 				<nav>
@@ -15,20 +15,20 @@ const Index = React.createClass({
 				<header>
 					<h1> Bienvenido</h1>
 				</header>
-				<section class="content">
-					<div class="step">
+				<section className="content">
+					<div className="step">
 						<p>Crea una Cuenta</p>
 					</div>
-					<div class="step">
+					<div className="step">
 						<p>Crea una Lista</p>
 					</div>
-					<div class="step">
+					<div className="step">
 						<p>Agrega los Productos</p>
 					</div>
-					<div class="step">
+					<div className="step">
 						<p>Guarda tu lista</p>
 					</div>
-					<div class="step">
+					<div className="step">
 						<p>Listo</p>
 					</div>
 				</section>
