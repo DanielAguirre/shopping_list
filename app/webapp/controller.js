@@ -5,10 +5,10 @@ const HomeController = {
 		res.render('index')
 	},
 	login: function(req, res) {
-		res.render('login')
+		res.render('login',{title:'Registrate'})
 	},
 	signin: function(req, res) {
-		res.render('signin')
+		res.render('signin',{title:'Sing in'})
 	}
 }
 
