@@ -4,8 +4,11 @@ const env = process.env.NODE_ENV || 'development';
 const express = require('express');
 const reactViews = require('express-react-views')
 const bodyParser = require('body-parser');
+const cookie = require('cookie-parser');
+const session = require('express-session')
 const urls = require('./urls');
-const middlewares =require('./middlewares') ;
+const middlewares =require('./middlewares');
+const passport = require('passport')
 
 var ExpressServer = function (){
 
@@ -13,6 +16,14 @@ var ExpressServer = function (){
 
   //middlewares
   this.expressServer.use(bodyParser.json());
+  this.expressServer.use(cookie());
+  this.expressServer.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true 
+  }));
+  this.expressServer.use(passport.initialize());
+  this.expressServer.use(passport.session());
 
   for(var middleware in middlewares) {
       this.expressServer.use(middlewares[middleware])

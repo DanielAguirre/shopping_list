@@ -1,6 +1,9 @@
 'use strict'
 
-const HomeController = {
+const Home = {
+	twitter: function (req, res) {		
+		res.redirect('/welcome');
+	},
 	home: function (req, res) {
 		res.render('index')
 	},
@@ -12,4 +15,4 @@ const HomeController = {
 	}
 }
 
-module.exports = HomeController
+module.exports = Home
