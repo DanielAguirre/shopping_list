@@ -1,15 +1,20 @@
 'use strict'
-const TwitterStrategy = require('passport-twitter').Strategy
+const Twitter = require('passport-twitter').Strategy
+const User = require('../models/user')
 
-module.exports = new TwitterStrategy({
-	consumerKey		 : TWITTER_COMSUMER_KEY,
-	consumerSecret : TWITTER_COMSUMER_SECRET,
+module.exports = new Twitter({
+	consumerKey		 : TWITTER_CONSUMMER_KEY,
+	consumerSecret : TWITTER_CONSUMMER_sECRET,
 	callbackURL		 : 'http://127.0.0.1:3000/login/twitter/callback'
-}, (token, tokenSecret, profile, cb) => {
-	process.nextTick(()=>{
-		console.log("token",token, tokenSecret,profile.id, profile)	
-		cb(null, profile)
+}, (token, tokenSecret, profile, done) => {
+	User.fetchOne({
+		'username':    profile.username,
+		'displayName': profile.displayName,
+		'photo': 			 profile.photos[0].value,
+		'provider': 	 profile.provider,
+		'provider_id': profile.id,
+	}, (err, user) => {
+		if (err) throw err
+		done(null, user)
 	})
-	
-
 })

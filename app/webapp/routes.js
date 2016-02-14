@@ -10,6 +10,7 @@ router.get('/login/twitter/callback', auth.authenticate('twitter', {
 	  successRedirect: '/welcome',
     failureRedirect: '/login' 
 }));
+router.get('/welcome', homeController.welcome)
 router.get('', homeController.home)
 
 

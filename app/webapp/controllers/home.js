@@ -1,9 +1,6 @@
 'use strict'
 
-const Home = {
-	twitter: function (req, res) {		
-		res.redirect('/welcome');
-	},
+const Home = {	
 	home: function (req, res) {
 		res.render('index')
 	},
@@ -12,6 +9,9 @@ const Home = {
 	},
 	signin: function(req, res) {
 		res.render('signin',{title:'Sing in'})
+	},
+	welcome: function(req, res){
+		res.render('welcome', {title:'welcome',user: req.user})
 	}
 }
 
