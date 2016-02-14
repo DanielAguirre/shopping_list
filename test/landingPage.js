@@ -7,14 +7,13 @@ const url ='/';
 request = request(host)
 describe('source /', function() {
 	describe('Landing Page', function () {
-		it('Should display the home page', function(done){
+		it('Should display the home page', function(done){			
 			request
 				.get(url)
 				.set('Accept','text/html')
-				.expect('Content-Type',/text\/html/)
-				.expect(200)
 				.end(function () {
-					assert.equal(200,res.status,'Status code 200')
+					console.log("status",res.status)
+					assert.equal("200", res.status,'Status code 200')
 					done()
 				})
 		})
@@ -22,7 +21,7 @@ describe('source /', function() {
 	describe('Signin Page', function () {
 		it('Should display the sign page with 3 buttons ', function(done){
 			request
-				.get(url+'signin')
+				.get(url+'login')
 				.set('Accept','text/html')
 				.expect('Content-Type',/text\/html/)
 				.expect(200)
