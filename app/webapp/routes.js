@@ -1,7 +1,8 @@
 'use strict'
 const express = require('express');
 const homeController = require('./controllers/home');
-const auth = require('../auth')
+const auth = require('../auth');
+const authMiddleware = require('../middlewares/auth');
 const router = express.Router();
 
 router.get('/login', homeController.login);
@@ -10,8 +11,9 @@ router.get('/login/twitter/callback', auth.authenticate('twitter', {
 	  successRedirect: '/welcome',
     failureRedirect: '/login' 
 }));
-router.get('/welcome', homeController.welcome)
-router.get('', homeController.home)
+router.get('/logout', homeController.logout);
+router.get('/welcome', authMiddleware.ensure, homeController.welcome);
+router.get('', homeController.home);
 
 
 module.exports = router;

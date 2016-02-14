@@ -7,6 +7,7 @@ const ShoppingList = {
 				callback(res);
 			});
 	},
+
 	save: function(data, callback) {
 		modelList
 			.create(data, function(err,res){
@@ -15,7 +16,6 @@ const ShoppingList = {
 			})
 
 	},
-
 
 	get: function(_id,callback) {
 		modelList
@@ -38,7 +38,6 @@ const ShoppingList = {
 					callback(data);
 				})
 	},
-
 
 	delete: function(id, callback){
 		modelList.remove({_id:id},function(err,data){

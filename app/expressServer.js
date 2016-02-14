@@ -9,12 +9,13 @@ const middlewares =require('./middlewares');
 
 var ExpressServer = function () {
 
-  this.expressServer = express()
+  this.expressServer = express();
 
   //middlewares
   this.expressServer.use(bodyParser.json());
+
   for(var middleware in middlewares) {
-      this.expressServer.use(middlewares[middleware])
+    this.expressServer.use(middlewares[middleware]);
   }
   
   if(env === 'development') {
@@ -30,6 +31,5 @@ var ExpressServer = function () {
       this.expressServer.use(url, urls[url]);
   }
 }
-
 
 module.exports = ExpressServer;

@@ -1,5 +1,5 @@
-const React = require('react')
-const Layout = require('./layout')
+const React = require('react');
+const Layout = require('./layout');
 
 const Login = React.createClass({
 	render: function () {
@@ -8,9 +8,10 @@ const Login = React.createClass({
 				<h1>Bienvenido {this.props.user.displayName}</h1>
 				<strong>{this.props.user.username}</strong>
 				<img src={this.props.user.photo}/>
+				<a href='logout'>Salir</a>
 			</Layout>
 		)
 	}
-})
+});
 
-module.exports = Login
+module.exports = Login;
