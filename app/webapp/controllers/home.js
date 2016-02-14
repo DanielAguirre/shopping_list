@@ -11,6 +11,7 @@ const Home = {
 		res.render('signin',{title:'Sing in'})
 	},
 	welcome: function(req, res){
+		console.log(req.user)
 		res.render('welcome', {title:'welcome',user: req.user})
 	}
 }
