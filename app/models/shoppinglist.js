@@ -10,7 +10,7 @@ const ShoppingList = {
 	save: function(data, callback) {
 		modelList
 			.create(data, function(err,res){
-				if(err) throw err;
+				if (err) throw err;
 				callback(res)
 			})
 

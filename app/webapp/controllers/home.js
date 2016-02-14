@@ -1,6 +1,6 @@
 'use strict'
 
-const HomeController = {
+const Home = {	
 	home: function (req, res) {
 		res.render('index')
 	},
@@ -9,7 +9,10 @@ const HomeController = {
 	},
 	signin: function(req, res) {
 		res.render('signin',{title:'Sing in'})
+	},
+	welcome: function(req, res){
+		res.render('welcome', {title:'welcome',user: req.user})
 	}
 }
 
-module.exports = HomeController
+module.exports = Home
