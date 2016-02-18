@@ -1,6 +1,6 @@
 'use strict'
 
-const ApiController = Object.create(require('../models/shoppinglist'));
+const ApiController = Object.create(require('../database/shoppinglist'));
 
 ApiController.getAll= function(req, res) {	
 	this.findAll((data) =>{

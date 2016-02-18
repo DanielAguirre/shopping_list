@@ -1,4 +1,4 @@
-const modelUser = require('./schema/user')
+const modelUser = require('./schema/user');
 
 const User = {
 	fetchOne: function(profile, done) {
@@ -22,6 +22,6 @@ const User = {
 				done(null, res)
 			})
 	}
-}
+};
 
-module.exports = User
+module.exports = User;
