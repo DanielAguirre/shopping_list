@@ -1,4 +1,5 @@
 module.exports = {
+	'/': require('./webapp/routes'),
 	'/api':require('./api/routes'),
-	'/': require('./webapp/routes')
+	'/login':require('./auth/routes')
 }
