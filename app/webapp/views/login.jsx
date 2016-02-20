@@ -7,9 +7,9 @@ const Login = React.createClass({
 			<Layout title={this.props.title}>
 				<h1>Log in</h1>
 				<section className="social-media-button">
-					<button>Twitter</button>
-					<button>Facebook</button>
-					<button>Gmail</button>
+					<a href='login/twitter'>Twitter</a>
+					<a href='login/facebook'>Facebook</a>
+					<a href='login/gmail'>Gmail</a>
 				</section>
 			</Layout>
 		)
