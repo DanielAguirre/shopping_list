@@ -1,18 +1,19 @@
 'use strict'
-const http = require('http');
+const https = require('http');
 const	mongoose = require('mongoose');
 const conf = require('./conf');
 const expressServer = require('./app/expressServer');
 
 
-mongoose.connect('mongodb://'+conf.mongoDB.host+'/'+conf.mongoDB.name);
+mongoose.connect('mongodb://'+ conf.mongoDB.host+ '/'+ conf.mongoDB.name);
 
-const app = new expressServer();
+const app = Object.create(expressServer)//new expressServer();
 
-const server = new http.createServer(app.expressServer);;
+
+const server = new https.createServer(app.init);
 
 if(!module.parent){
-	server.listen(conf.port,function(){
+	server.listen(conf.port, function(){
 		console.log('app runining in port 3000')
 	});
 }else {

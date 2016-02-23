@@ -15,11 +15,7 @@ const Login = React.createClass({
 						<li>Ver Listas</li>
 					</ul>
 				</nav>
-				<section>
-					<form>
-						<input placeholder="nombre"></input>
-						<input placeholder="0.00"></input>
-					</form>
+				<section id="produtcsList">
 				</section>
 			</Layout>
 		)

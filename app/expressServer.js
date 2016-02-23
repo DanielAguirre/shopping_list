@@ -7,28 +7,30 @@ const bodyParser = require('body-parser');
 const urls = require('./urls');
 const middlewares =require('./middlewares');
 
-var ExpressServer = function () {
+var ExpressServer = {
+  init:function () {
 
-  this.expressServer = express();
+    this.expressServer = express();
 
-  //middlewares
-  this.expressServer.use(bodyParser.json());
+    //middlewares
+    this.expressServer.use(bodyParser.json());
 
-  for(var middleware in middlewares) {
-    this.expressServer.use(middlewares[middleware]);
-  }
-  
-  if(env === 'development') {
-    console.log("NO HAY CHACHE");
-    this.expressServer.set('view cache', false);
-  }
+    for(var middleware in middlewares) {
+      this.expressServer.use(middlewares[middleware]);
+    }
     
-  this.expressServer.set('views',__dirname+'/webapp/views');
-  this.expressServer.set('view engine','jsx');
-  this.expressServer.engine('jsx', reactViews.createEngine());
+    if(env === 'development') {
+      console.log("NO HAY CHACHE");
+      this.expressServer.set('view cache', false);
+    }
+      
+    this.expressServer.set('views',__dirname+'/webapp/views');
+    this.expressServer.set('view engine','jsx');
+    this.expressServer.engine('jsx', reactViews.createEngine());
 
-  for(var url in urls) {
-      this.expressServer.use(url, urls[url]);
+    for(var url in urls) {
+        this.expressServer.use(url, urls[url]);
+    }
   }
 }
 

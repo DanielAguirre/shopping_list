@@ -4,8 +4,9 @@
   "description": "Web app que te permitira hacer lista de compras",
   "main": "server.js",
   "scripts": {
-    "development": "NODE_ENV=development node server.js",
+    "build": "browserify ./public/js/app.js -o ./public/build.js -t [ babelify --presets [ es2015 react ] ]",
     "coverage": "istanbul cover _mocha -- -u exports -R spec",
+    "development": "NODE_ENV=development node server.js",
     "test": "make test"
   },
   "author": "Daniel Alejandro Aguirre Linares",
@@ -15,9 +16,11 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "babelify": "^7.2.0",
     "chai": "^2.1.1",
     "istanbul": "^0.4.2",
     "mocha": "^2.2.1",
+    "npm-watch": "^0.1.1",
     "supertest": "^0.15.0",
     "supertest-as-promised": "^1.0.0"
   },
@@ -32,10 +35,12 @@
     "lodash": "^3.5.0",
     "mongoose": "^3.8.24",
     "morgan": "^1.6.1",
+    "page": "^1.6.4",
     "passport": "^0.2.1",
     "passport-facebook": "^2.0.0",
     "passport-twitter": "^1.0.3",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "react-router": "^2.0.0"
   }
 }
