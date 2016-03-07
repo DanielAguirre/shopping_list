@@ -4,7 +4,7 @@
   "description": "Web app que te permitira hacer lista de compras",
   "main": "server.js",
   "scripts": {
-    "build": "browserify ./public/js/app.js -o ./public/build.js -t [ babelify --presets [ es2015 react ] ]",
+    "build": "watchify ./public/js/app.js -o ./public/build.js -t [ babelify --presets [ es2015 react ] ]",
     "coverage": "istanbul cover _mocha -- -u exports -R spec",
     "development": "NODE_ENV=development node server.js",
     "test": "make test"
@@ -22,7 +22,8 @@
     "mocha": "^2.2.1",
     "npm-watch": "^0.1.1",
     "supertest": "^0.15.0",
-    "supertest-as-promised": "^1.0.0"
+    "supertest-as-promised": "^1.0.0",
+    "watchify": "^3.7.0"
   },
   "dependencies": {
     "babel-preset-es2015": "^6.5.0",
