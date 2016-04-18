@@ -6,6 +6,8 @@
   "scripts": {
     "build": "babelify ./public/js/app.js -o ./public/build.js -t [ babelify --presets [ es2015 react ] ]",
     "watch": "watchify ./public/js/app.js -o ./public/build.js -t [ babelify --presets [ es2015 react ] ]",
+    "lint": "eslint --ignore-pattern **/bundle-*.js --ext .js,.jsx public/js/**",
+    "transpile": "npm run eslint && npm run build",
     "coverage": "istanbul cover _mocha -- -u exports -R spec",
     "development": "NODE_ENV=development node server.js",
     "test": "make test"
@@ -19,6 +21,11 @@
   "devDependencies": {
     "babelify": "^7.2.0",
     "chai": "^2.1.1",
+    "eslint": "^2.8.0",
+    "eslint-config-airbnb": "^7.0.0",
+    "eslint-plugin-import": "^1.4.0",
+    "eslint-plugin-jsx-a11y": "^0.6.2",
+    "eslint-plugin-react": "^5.0.0",
     "istanbul": "^0.4.2",
     "mocha": "^2.2.1",
     "npm-watch": "^0.1.1",
@@ -41,8 +48,8 @@
     "passport": "^0.2.1",
     "passport-facebook": "^2.0.0",
     "passport-twitter": "^1.0.3",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.7",
+    "react": "*",
+    "react-dom": "*",
     "react-router": "^2.0.0"
   }
 }

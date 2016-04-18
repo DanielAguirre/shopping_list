@@ -1,13 +1,13 @@
-import Page from 'page';
+import page from 'page';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ProductsApp from './components/ProductsApp';
 
-Page('/welcome', () =>{
-	ReactDOM.render(
-		<ProductsApp/>,
-		document.getElementById('produtcsList')
-	);
-})
+page('/welcome', () => {
+  ReactDOM.render(
+    <ProductsApp />,
+    document.getElementById('produtcsList')
+  );
+});
 
-Page()
+page();
