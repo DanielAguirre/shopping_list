@@ -8,6 +8,6 @@ router.get('', homeController.home);
 router.get('/login', homeController.login);
 router.get('/logout', homeController.logout);
 router.get('/welcome', authMiddleware.ensure, homeController.welcome);
-
+//router.get('/welcome', homeController.welcome);
 
 module.exports = router;

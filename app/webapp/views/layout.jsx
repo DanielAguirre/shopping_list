@@ -8,9 +8,10 @@ const Layout = React.createClass({
          <title>"Shopping List"</title>
          <meta charSet="utf-8"/>
         </head>
-        <body>
-          {this.props.children}
+        <body>          
+          {this.props.children}          
         </body>
+        <script src='build.js'></script>
       </html>
     )
   }

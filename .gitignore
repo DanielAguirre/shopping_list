@@ -4,3 +4,8 @@ coverage
 conf.json
 config.js
 npm-debug.log
+
+app/auth/twitter.js
+public/build.js
+key.pem
+csr.pen

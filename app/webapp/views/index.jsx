@@ -1,7 +1,6 @@
 const React = require('react')
 const Layout = require('./layout')
 
-
 const Index = React.createClass({
 	render: function () {
 		return (			
