@@ -1,10 +1,10 @@
 'use strict'
 const express = require('express');
-const apiController = require('./controller');
+const apiController = require('./controller')();
 
 const router = express.Router();
 
-router.get('/shopping_lists/', apiController.getAll);
+router.get('/shopping_lists/', apiController.findAll);
 
 router
 	.route('/shopping_lists/:id?')
@@ -12,9 +12,9 @@ router
 		res.set('Content-Type','application/json');
 		next();
 	})
-	.post(apiController.post)
-	.get(apiController.fetch)
-	.put(apiController.restore)
-	.delete(apiController.remove);
+	.post(apiController.save)
+	.get(apiController.find)
+	.put(apiController.update)
+	.delete(apiController.delete);
 
 module.exports = router;
