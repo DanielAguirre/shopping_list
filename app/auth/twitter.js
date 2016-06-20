@@ -3,11 +3,11 @@ const Twitter = require('passport-twitter').Strategy
 const User = require('../database/user')
 
 module.exports = new Twitter({
-	consumerKey		 : 'consumerKey',
-	consumerSecret : 'consumerSecret',
+	consumerKey		 : 'P8VK7Uj9xFf6ptckwN5VxJvSl',
+	consumerSecret   : 'consumerSecret',
 	callbackURL		 : 'http://127.0.0.1:3000/login/twitter/callback'
 }, (token, tokenSecret, profile, done) => {
-	User.fetchOne({
+	User.find({
 		'username':    profile.username,
 		'displayName': profile.displayName,
 		'photo': 			 profile.photos[0].value,

@@ -1,7 +1,7 @@
 const modelUser = require('./schema/user');
 
 const User = {
-	fetchOne: function(profile, done) {
+	find: function(profile, done) {
 		modelUser
 			.findOne({"provider_id": profile.provider_id}, (err, res) =>{
 				if(err) return done(err)
